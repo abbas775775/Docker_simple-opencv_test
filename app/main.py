@@ -70,8 +70,10 @@ async def predict(files: UploadFile = File(...)):
         image=np.array(image)# cv2 need np.array format
         cv2.circle(image,(50,50),20,(0,0,255), -1)
         image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-        _, png_img = cv2.imencode('.PNG', image)  #me: without saving
-        return StreamingResponse(io.BytesIO(png_img.tobytes()), media_type="image/png")   
+        print(image)
+#         _, png_img = cv2.imencode('.PNG', image)  #me: without saving
+#         return StreamingResponse(io.BytesIO(png_img.tobytes()), media_type="image/png") 
+        return "yes Amin"
 
 
 # Start the app in normal deployment
