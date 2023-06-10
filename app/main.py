@@ -9,10 +9,12 @@ Original file is located at
 
 import uvicorn
 from uvicorn import Config, Server
+import fastapi
 from fastapi import FastAPI, File, UploadFile
+import pydantic
 from pydantic import BaseModel# o validate the input and output of the RESTful API, we can define the schema in FastAPI with pydantic, which will be used to generate the OpenAPI docs and ReDoc automatically.
 
-
+import PIL
 from PIL import Image
 #import io
 #import pyngrok
@@ -21,7 +23,7 @@ from PIL import Image
 from fastapi.responses import HTMLResponse, StreamingResponse
 import cv2
 import numpy as np
-from typing import List
+
 
 #this is my ngrok account to see the final APP
 #!ngrok config add-authtoken 2OvVxoK97Q4xGawagb7WKLJTQi8_4wEepnHMTPYUDAUSxcGnt
