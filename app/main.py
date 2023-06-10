@@ -70,9 +70,9 @@ async def predict(files: UploadFile = File(...)):
         image=np.array(image)# cv2 need np.array format
         cv2.circle(image,(50,50),20,(0,0,255), -1)
         image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-#         cv2.imwrite("cv_sil.jpg", image) #????cv2.imencode
-#         new_image=open("cv_sil.jpg",mode="rb")#read the image as a binary
-        return StreamingResponse(image,media_type="image/jpeg") #send binay image to the site
+        cv2.imwrite("cv_sil.jpg", image) #????cv2.imencode
+        new_image=open("cv_sil.jpg",mode="rb")#read the image as a binary
+        return StreamingResponse(new_image,media_type="image/jpeg") #send binay image to the site
 
 
 # Start the app in normal deployment
