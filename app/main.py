@@ -68,9 +68,9 @@ async def predict(files: UploadFile = File(...)):
         #     raise HTTPException(status_code=415, detail="Unsupported file provided.")  
         image = await files.read()
         image = Image.open(io.BytesIO(image)).convert('RGB')
-        print(image,flush=True)
+        
         #image=np.array(image)# cv2 need np.array format
-        return JSONResponse( {"yes":"Amin"})
+        return {"yes":"Amin"}
 #         cv2.circle(image,(50,50),20,(0,0,255), -1)
 #         image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 #         print(image)
