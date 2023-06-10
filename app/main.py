@@ -10,7 +10,7 @@ from pydantic import BaseModel# o validate the input and output of the RESTful A
 
 import PIL
 from PIL import Image
-#import io
+import io
 #import pyngrok
 #import nest_asyncio
 #from pyngrok import ngrok
