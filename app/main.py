@@ -59,7 +59,7 @@ async def main():
 
 #1- async type:
 # Define API endpoint for image classification
-@app.put("/predict/")
+@app.post("/predict/")
 async def predict(files: UploadFile = File(...)):  
         # # first, VALIDATE INPUT FILE
         # filename = file.filename
