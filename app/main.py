@@ -61,7 +61,7 @@ async def main():
 @app.post("/predict/")
 async def predict(files: UploadFile = File(...)):  
         # # first, VALIDATE INPUT FILE
-        filename = file.filename
+        filename = files.filename
         fileExtension = filename.split(".")[-1] in ("jpg", "jpeg", "png")
         if not fileExtension:
             raise HTTPException(status_code=415, detail="Unsupported file provided.")  
