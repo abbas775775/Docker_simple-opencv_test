@@ -61,10 +61,10 @@ async def main():
 @app.post("/predict/")
 async def predict(files: UploadFile = File(...)):  
         # # first, VALIDATE INPUT FILE
-        # filename = file.filename
-        # fileExtension = filename.split(".")[-1] in ("jpg", "jpeg", "png")
-        # if not fileExtension:
-        #     raise HTTPException(status_code=415, detail="Unsupported file provided.")  
+        filename = file.filename
+        fileExtension = filename.split(".")[-1] in ("jpg", "jpeg", "png")
+        if not fileExtension:
+            raise HTTPException(status_code=415, detail="Unsupported file provided.")  
         image = await files.read()
         image = Image.open(io.BytesIO(image)).convert('RGB')
         
@@ -72,6 +72,9 @@ async def predict(files: UploadFile = File(...)):
         
         cv2.circle(image,(50,50),20,(0,0,255), -1)
         image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+        print(image,flush=True)
+#         _, png_img = cv2.imencode('.PNG', image)  #me: without saving
+#         return StreamingResponse(io.BytesIO(png_img.tobytes()), media_type="image/png")        
         cv2.imwrite("cv_sil.jpg", image) #????cv2.imencode
         new_image=open("cv_sil.jpg",mode="rb")#read the image as a binary
         return StreamingResponse(new_image,media_type="image/jpeg") #send binay image to the site 
