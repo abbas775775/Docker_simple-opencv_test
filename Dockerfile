@@ -8,6 +8,8 @@ WORKDIR /app
 
 COPY ./app/requirements.txt /app/requirements.txt
 RUN apt-get update
+RUN pip install --upgrade pip
+
 RUN apt install -y libgl1-mesa-glx
 RUN pip install python-multipart
 RUN pip install -r requirements.txt
