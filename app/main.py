@@ -5,8 +5,7 @@ import fastapi
 from fastapi import FastAPI, File, UploadFile, HTTPException
 from fastapi.responses import JSONResponse
 import pydantic
-from pydantic import BaseModel# o validate the input and output of the RESTful API, we can define the schema in FastAPI with pydantic, which will be used to generate the OpenAPI docs and ReDoc automatically.
-
+from pydantic import BaseModel
 import PIL
 from PIL import Image
 import io
@@ -25,7 +24,6 @@ app = FastAPI(title='Deploying a ML Model with FastAP')
 
 
 # Define class for image requests
-#me: If a user passes something that is incorrect, a response is returned to the user letting them know that the request could not be processed due to a data validation error
 class ImageRequest(BaseModel):
     file_name: str
     file_content: UploadFile
