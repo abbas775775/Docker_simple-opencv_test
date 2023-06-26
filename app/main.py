@@ -9,16 +9,11 @@ from pydantic import BaseModel
 import PIL
 from PIL import Image
 import io
-#import pyngrok
-#import nest_asyncio
-#from pyngrok import ngrok
+
 from fastapi.responses import HTMLResponse, StreamingResponse
 import cv2
 import numpy as np
 
-
-#this is my ngrok account to see the final APP
-#!ngrok config add-authtoken 2OvVxoK97Q4xGawagb7WKLJTQi8_4wEepnHMTPYUDAUSxcGnt
 
 app = FastAPI(title='Deploying a ML Model with FastAP')
 
