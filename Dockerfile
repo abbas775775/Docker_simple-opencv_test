@@ -12,7 +12,8 @@ RUN pip install --upgrade pip
 
 
 RUN apt update
-RUN apt-get install -y libglib2.0-0 libsm6 libxrender1 libxext6
+RUN apt-get update && apt-get install ffmpeg libsm6 libxext6  -y
+#RUN apt-get install -y libglib2.0-0 libsm6 libxrender1 libxext6
 #RUN apt install -y libgl1-mesa-glx
 
 
